@@ -1,30 +1,50 @@
-let userWins = 0;
+const choices = { rock: "src/assets/images/stone.png", paper: "src/assets/images/paper.png", scissors: "src/assets/images/scissors.png" };
 
-function playGame(userChoice) {
-    const choices = ['rock', 'paper', 'scissors'];
-    const systemChoice = choices[Math.floor(Math.random() * 3)];
+const buttons = document.querySelectorAll(".piece");
+const selectionDiv = document.getElementById("selection");
+const resultDiv = document.getElementById("result");
+const scoreSpan = document.getElementById("score");
+const newGameButton = document.getElementById("newGame");
 
-    let selectionMessage = `You chose ${userChoice}, System chose ${systemChoice}. `;
-    
-    let resultMessage;
+let score = 0;
 
-    if (userChoice === systemChoice) {
-        resultMessage = "It's a tie!";
-        userWins+=0.5;
+buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+        playGame(button.id);
+    });
+});
+
+function playGame(playerChoice) {
+    const computerChoices = ["rock", "paper", "scissors"];
+    const computerChoice = computerChoices[Math.floor(Math.random() * 3)];
+
+    selectionDiv.innerHTML = `
+        <p>You: <img src="${choices[playerChoice]}" width="50"/></p>
+        <p>Computer: <img src="${choices[computerChoice]}" width="50"/></p>
+    `;
+
+    if (playerChoice === computerChoice) {
+        resultDiv.textContent = "It's a tie!";
     } else if (
-        (userChoice === 'rock' && systemChoice === 'scissors') ||
-        (userChoice === 'paper' && systemChoice === 'rock') ||
-        (userChoice === 'scissors' && systemChoice === 'paper')
+        (playerChoice === "rock" && computerChoice === "scissors") ||
+        (playerChoice === "paper" && computerChoice === "rock") ||
+        (playerChoice === "scissors" && computerChoice === "paper")
     ) {
-        userWins++;
-        resultMessage = "You win!";
+        resultDiv.textContent = "You Win!";
+        score++;
     } else {
-        resultMessage = `System wins! Game Over! Total score - ${userWins}`;
-        userWins = 0;
+        resultDiv.textContent = "You Lose!";
+        score--;
     }
 
-    document.getElementById('score').innerText = userWins;
-    document.getElementById('selection').innerText = selectionMessage;
-    document.getElementById('result').innerText = resultMessage;
+    scoreSpan.textContent = score;
 }
 
+newGameButton.addEventListener("click", resetGame);
+
+
+function resetGame() {
+    userWins = 0;
+    document.getElementById('result').innerText = "Click a button to play!";
+    document.getElementById('score').innerText = "0";
+}

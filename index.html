@@ -13,16 +13,14 @@
             Score : <span id="score">0</span>
         </div>
         <div class="buttons">
-            <button class="piece" onclick="playGame('rock')"><img class="image" src="src/assets/images/stone.png"/></button>
-            <button class="piece" onclick="playGame('paper')"><img class="image" src="src/assets/images/paper.png"/></button>
-            <button class="piece" onclick="playGame('scissors')"><img class="image" src="src/assets/images/scissors.png"/></button>
+            <button class="piece" id="rock"><img class="image" src="src/assets/images/stone.png"/></button>
+            <button class="piece" id="paper"><img class="image" src="src/assets/images/paper.png"/></button>
+            <button class="piece" id="scissors"><img class="image" src="src/assets/images/scissors.png"/></button>
         </div>
         <div class="selection" id="selection"></div>
         <div class="result" id="result">Click a button to play!</div>
-        <button class="new_game" onclick="resetGame()">New Game</button>
+        <button class="new_game" id="newGame">New Game</button>
     </div>
-
-    <script src="src/js/utils/resetGame.js"></script>
     <script src="src/js/app.js"></script>
 </body>
 </html>
