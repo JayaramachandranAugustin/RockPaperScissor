@@ -1,26 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock Paper Scissors</title>
-    <link rel="stylesheet" type="text/css" href="src/style/styles.css" /> 
-</head>
-<body>
-    <h1>Rock Paper Scissors</h1>
-    <div class="game-container">
-        <div class="score">
-            Score : <span id="score">0</span>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title><%= htmlWebpackPlugin.options.title %></title>
+    </head>
+    <body>
+        <h1>Rock Paper Scissors</h1>
+        <div class="game-container">
+            <div class="score">
+                Score : <span id="score">0</span>
+            </div>
+            <div class="buttons">
+                <button class="piece" id="rock"><img class="image" src="<%= require('./src/assets/images/stone.png') %>"/></button>
+                <button class="piece" id="paper"><img class="image" src="<%= require('./src/assets/images/paper.png') %>"/></button>
+                <button class="piece" id="scissors"><img class="image" src="<%= require('./src/assets/images/scissors.png') %>"/></button>
+            </div>
+    
+            <div class="selection" id="selection"></div>
+            <div class="result" id="result">Click a button to play!</div>
+            <button class="new_game" id="newGame">New Game</button>
         </div>
-        <div class="buttons">
-            <button class="piece" id="rock"><img class="image" src="src/assets/images/stone.png"/></button>
-            <button class="piece" id="paper"><img class="image" src="src/assets/images/paper.png"/></button>
-            <button class="piece" id="scissors"><img class="image" src="src/assets/images/scissors.png"/></button>
-        </div>
-        <div class="selection" id="selection"></div>
-        <div class="result" id="result">Click a button to play!</div>
-        <button class="new_game" id="newGame">New Game</button>
-    </div>
-    <script src="src/js/app.js"></script>
-</body>
+    </body>
 </html>
