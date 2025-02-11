@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "ES6",                // Output ES6 JavaScript
+    "module": "ESNext",             // Use the ES module system
+    "moduleResolution": "node",     // Resolve modules in Node.js style
+    "strict": true,                 // Enable strict type-checking
+    "esModuleInterop": true,        // Allow compatibility with ES modules
+    "skipLibCheck": true,           // Skip type checking of declaration files
+    "resolveJsonModule": true,
+    "allowJs": true                 // Allow JavaScript files to be compiled
+  },
+  "include": ["src/**/*"],           // Include all TypeScript files in src/
+  "exclude": ["node_modules"]        // Exclude node_modules from compilation
+}
